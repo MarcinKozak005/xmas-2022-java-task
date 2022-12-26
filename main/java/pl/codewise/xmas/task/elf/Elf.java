@@ -33,7 +33,7 @@ public class Elf {
         CookieType ct = switch (madeCookieShape) {
             case ONLY_CHRISTMAS_TREE -> CookieType.CHRISTMAS_TREE;
             case ONLY_SANTA_CLAUS_HAT -> CookieType.SANTA_CLAUS_HAT;
-            case ONLY_SLEDGE -> CookieType.SLEDGE;
+            case ONLY_SLEIGH -> CookieType.SLEIGH;
             case RANDOM -> getRandomCookieType();
         };
         return (doughState == DoughState.FRESH) ?

@@ -20,7 +20,7 @@ public class ContaminatedCookie extends Cookie {
     public void tick() {
         timeSinceCreation++;
         // 5min x 60s = 300s
-        if (timeSinceCreation == 300) cookieState = CookieState.ROTTEN;
+        if (timeSinceCreation == 5) cookieState = CookieState.ROTTEN;
     }
 
     @Override

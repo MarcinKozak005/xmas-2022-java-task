@@ -32,6 +32,10 @@ public class CookieFactory {
         this.doughState = doughState;
     }
 
+    public DoughState getDoughState() {
+        return doughState;
+    }
+
     public Report getReport() {
         return cookieQueue.getReport();
     }
