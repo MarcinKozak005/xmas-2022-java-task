@@ -1,4 +1,4 @@
-package pl.codewise.xmas.task;
+package java.pl.codewise.xmas.task;
 
 import org.junit.jupiter.api.Test;
 
