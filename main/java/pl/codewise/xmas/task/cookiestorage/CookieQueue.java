@@ -9,7 +9,11 @@ public interface CookieQueue {
 
     void add(Cookie message);
 
+    Report getReport();
+
     Collection<Cookie> getAllCookies();
 
-    Report getReport();
+    int size();
+
+    int getCapacity();
 }

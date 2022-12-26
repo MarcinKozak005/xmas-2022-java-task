@@ -14,4 +14,9 @@ public class AlwaysFreshCookie extends Cookie {
     @Override
     public void tick() {
     }
+
+    @Override
+    public String toString() {
+        return getId() + " (AlwaysFreshCookie): " + getCookieType();
+    }
 }

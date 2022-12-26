@@ -2,6 +2,7 @@ package pl.codewise.xmas.task.cookiestorage;
 
 import pl.codewise.xmas.task.Report;
 import pl.codewise.xmas.task.cookie.Cookie;
+import pl.codewise.xmas.task.cookie.CookieState;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -24,14 +25,34 @@ public class CookieStorage implements CookieQueue {
     }
 
     @Override
+    public Report getReport() {
+        return (cookieList.size() < 100) ?
+                (() -> cookieList.stream()
+                        .filter(c -> c.getCookieState() == CookieState.FRESH)
+                        .collect(Collectors.toList())) :
+                (() -> cookieList.stream()
+                        .skip(cookieList.size() - 100)
+                        .filter(c -> c.getCookieState() == CookieState.FRESH)
+                        .collect(Collectors.toList()));
+    }
+
+    @Override
     public Collection<Cookie> getAllCookies() {
         return this.cookieList;
     }
 
     @Override
-    public Report getReport() {
-        return (cookieList.size() < 100) ?
-                (() -> cookieList) :
-                (() -> cookieList.stream().skip(cookieList.size() - 100).collect(Collectors.toList()));
+    public int size() {
+        return cookieList.size();
+    }
+
+    @Override
+    public int getCapacity() {
+        return storageCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return cookieList.toString();
     }
 }
