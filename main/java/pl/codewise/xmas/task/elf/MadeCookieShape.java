@@ -1,6 +1,6 @@
 package pl.codewise.xmas.task.elf;
 
-public enum CreatedCookieType {
+public enum MadeCookieShape {
     ONLY_CHRISTMAS_TREE,
     ONLY_SANTA_CLAUS_HAT,
     ONLY_SLEDGE,

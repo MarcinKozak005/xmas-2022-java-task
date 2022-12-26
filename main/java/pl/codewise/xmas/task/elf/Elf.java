@@ -13,11 +13,11 @@ public class Elf {
     private static final Random random = new Random();
     private static final CookieType[] cookieTypes = CookieType.values();
     private final int id;
-    private final CreatedCookieType createdCookieType;
+    private final MadeCookieShape madeCookieShape;
 
-    public Elf(int id, CreatedCookieType createdCookieType) {
+    public Elf(int id, MadeCookieShape madeCookieShape) {
         this.id = id;
-        this.createdCookieType = createdCookieType;
+        this.madeCookieShape = madeCookieShape;
     }
 
     private static CookieType getRandomCookieType() {
@@ -25,7 +25,7 @@ public class Elf {
     }
 
     public Cookie makeCookie(DoughState doughState) {
-        CookieType ct = switch (createdCookieType) {
+        CookieType ct = switch (madeCookieShape) {
             case ONLY_CHRISTMAS_TREE -> CookieType.CHRISTMAS_TREE;
             case ONLY_SANTA_CLAUS_HAT -> CookieType.SANTA_CLAUS_HAT;
             case ONLY_SLEDGE -> CookieType.SLEDGE;
