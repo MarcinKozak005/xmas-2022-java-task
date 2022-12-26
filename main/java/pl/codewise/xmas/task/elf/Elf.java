@@ -9,15 +9,20 @@ import pl.codewise.xmas.task.cookie.CookieType;
 import java.util.Random;
 
 public class Elf {
-
     private static final Random random = new Random();
     private static final CookieType[] cookieTypes = CookieType.values();
+    private static int currentId = 0;
+
+    public Elf(MadeCookieShape madeCookieShape) {
+        this.id = getNextId();
+        this.madeCookieShape = madeCookieShape;
+    }
+
     private final int id;
     private final MadeCookieShape madeCookieShape;
 
-    public Elf(int id, MadeCookieShape madeCookieShape) {
-        this.id = id;
-        this.madeCookieShape = madeCookieShape;
+    private static int getNextId() {
+        return currentId++;
     }
 
     private static CookieType getRandomCookieType() {
@@ -34,5 +39,14 @@ public class Elf {
         return (doughState == DoughState.FRESH) ?
                 new AlwaysFreshCookie(Cookie.getNextId(), ct) :
                 new ContaminatedCookie(Cookie.getNextId(), ct);
+    }
+
+    public MadeCookieShape getMadeCookieShape() {
+        return madeCookieShape;
+    }
+
+    @Override
+    public String toString() {
+        return "Elf(" + id + "): " + madeCookieShape;
     }
 }

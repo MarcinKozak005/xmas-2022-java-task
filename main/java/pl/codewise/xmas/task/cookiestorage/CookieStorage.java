@@ -24,14 +24,29 @@ public class CookieStorage implements CookieQueue {
     }
 
     @Override
+    public Report getReport() {
+        return (cookieList.size() < 100) ?
+                (() -> cookieList) :
+                (() -> cookieList.stream().skip(cookieList.size() - 100).collect(Collectors.toList()));
+    }
+
+    @Override
     public Collection<Cookie> getAllCookies() {
         return this.cookieList;
     }
 
     @Override
-    public Report getReport() {
-        return (cookieList.size() < 100) ?
-                (() -> cookieList) :
-                (() -> cookieList.stream().skip(cookieList.size() - 100).collect(Collectors.toList()));
+    public int size() {
+        return cookieList.size();
+    }
+
+    @Override
+    public int getCapacity() {
+        return storageCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return cookieList.toString();
     }
 }
