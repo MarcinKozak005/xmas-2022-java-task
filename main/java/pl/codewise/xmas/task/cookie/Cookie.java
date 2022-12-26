@@ -4,11 +4,10 @@ package pl.codewise.xmas.task.cookie;
  * You can modify this class
  */
 public abstract class Cookie {
+    private static int currentId = 0;
 
-    public enum CookieType {
-        CHRISTMAS_TREE,
-        SANTA_CLAUS_HAT,
-        SLEDGE
+    public static int getNextId() {
+        return currentId++;
     }
 
     private final int id;
