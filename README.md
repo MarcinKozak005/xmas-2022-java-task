@@ -1,4 +1,10 @@
-# xmas-2022-java-task
+# Xmas2022Task_Java
+
+To run:
+```bash
+$ mvn compile
+$ mvn exec:java -Dexec.mainClass=pl.codewise.xmas.task.App
+```
 
 This repository contains my solution to the [Codewise christmas coding task](https://codewise.com/christmas-task/). The
 task content is given below.
